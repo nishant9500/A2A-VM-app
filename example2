@@ -1,0 +1,24 @@
+<request>
+  <query>
+    <action>SELECT</action>
+    <table>your_dataset.sales_transactions</table>
+    <columns>
+      <column>product_id</column>
+      <column>sale_date</column>
+      <column>quantity</column>
+      <column>revenue</column>
+    </columns>
+    <conditions>
+      <condition>
+        <field>sale_date</field>
+        <operator>&gt;=</operator>
+        <value>2023-01-01</value>
+      </condition>
+      <condition>
+        <field>region</field>
+        <operator>=</operator>
+        <value>North America</value>
+      </condition>
+    </conditions>
+  </query>
+</request>
