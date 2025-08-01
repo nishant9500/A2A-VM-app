@@ -3,6 +3,7 @@ import json
 import xml.etree.ElementTree as ET
 from flask import Flask, request, render_template_string
 from google.cloud import aiplatform
+from vertexai.generative_models import GenerativeModel # Correct import for GenerativeModel
 
 # Initialize the Flask application
 app = Flask(__name__)
@@ -72,7 +73,7 @@ def generate_bigquery_sql_from_xml(xml_string):
         The BigQuery SQL query should be: SELECT first_name, last_name FROM `mydataset.employees` WHERE department_id = '101';
         """
 
-        model = aiplatform.GenerativeModel(MODEL_NAME)
+        model = GenerativeModel(MODEL_NAME) # Corrected instantiation
         response = model.generate_content(prompt)
         
         sql_query = response.text.strip().replace("```sql\n", "").replace("```", "")
@@ -109,7 +110,7 @@ def generate_plan_from_xml(xml_string):
     ```
     """
     try:
-        model = aiplatform.GenerativeModel(MODEL_NAME)
+        model = GenerativeModel(MODEL_NAME) # Corrected instantiation
         response = model.generate_content(prompt)
         json_plan = response.text.strip().replace("```json\n", "").replace("```", "")
         return json.loads(json_plan), None
@@ -147,7 +148,7 @@ def generate_sql_from_plan(plan):
         Generate the BigQuery SQL query based on this plan.
         """
         
-        model = aiplatform.GenerativeModel(MODEL_NAME)
+        model = GenerativeModel(MODEL_NAME) # Corrected instantiation
         response = model.generate_content(prompt)
         sql_query = response.text.strip().replace("```sql\n", "").replace("```", "")
         return sql_query, None
