@@ -1,0 +1,22 @@
+<request>
+  <query>
+    <action>SELECT</action>
+    <table>`mydataset.transactions`</table>
+    <columns>
+      <column>id</column>
+      <column>transaction_date AS purchase_date</column>
+    </columns>
+    <conditions>
+      <condition>
+        <field>status</field>
+        <operator>=</operator>
+        <value>COMPLETED</value>
+      </condition>
+      <condition>
+        <field>transaction_date</field>
+        <operator>BETWEEN</operator>
+        <value>DATE('2024-01-01') AND DATE('2024-01-31')</value>
+      </condition>
+    </conditions>
+  </query>
+</request>
