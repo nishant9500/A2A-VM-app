@@ -1,0 +1,3 @@
+SELECT *,
+  IF(country = "US", "NA", "Global") AS region
+FROM `your_dataset.sales`
