@@ -1,0 +1,14 @@
+<Node ToolID="1" Tool="InputData">
+  <Properties>
+    <Configuration>
+      <File>sales.csv</File>
+    </Configuration>
+  </Properties>
+</Node>
+<Node ToolID="2" Tool="Formula">
+  <Properties>
+    <Configuration>
+      <Expression field="region">IF [country] = "US" THEN "NA" ELSE "Global"</Expression>
+    </Configuration>
+  </Properties>
+</Node>
