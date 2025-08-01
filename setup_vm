@@ -1,0 +1,4 @@
+mkdir xml_to_sql_app
+cd xml_to_sql_app
+python3 -m venv venv
+source venv/bin/activate
